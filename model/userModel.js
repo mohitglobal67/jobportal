@@ -38,7 +38,7 @@ const userModel = new mongoose.Schema({
 //middleware
 
 userModel.pre('save', async function () {
-
+    if (!this.isModified) return;
     const salt = await bcrypt.genSalt(10);
     this.password = await bcrypt.hash(this.password, salt);
 
@@ -48,7 +48,7 @@ userModel.pre('save', async function () {
 //Json WebToken
 
 userModel.methods.createJWT = function () {
-    return JWT.sign({ userID: this._id }, process.env.JWT_SECRET, { expiresIn: '1d' })
+    return JWT.sign({ userId: this._id }, process.env.JWT_SECRET, { expiresIn: '1d' })
 }
 
 

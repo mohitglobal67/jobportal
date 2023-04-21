@@ -33,10 +33,17 @@ app.use(morgan('dev'));
 
 //routes import
 import authroutes from './routes/authroutes.js'
+import userroutes from './routes/usersroutes.js'
+
+import jobroutes from './routes/jobroutes.js'
 import errorMiddelware from "./middlewares/errormiddleware.js";
 
 
 app.use('/api/v1/auth', authroutes);
+
+app.use('/api/v1/user', userroutes);
+
+app.use('/api/v1/job', jobroutes);
 
 
 
