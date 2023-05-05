@@ -35,6 +35,8 @@ app.use(morgan('dev'));
 import authroutes from './routes/authroutes.js'
 import userroutes from './routes/usersroutes.js'
 import categoryroutes from "./routes/categoryroutes.js"
+import productroutes from "./routes/productroutes.js"
+    
 
 import jobroutes from './routes/jobroutes.js'
 import errorMiddelware from "./middlewares/errormiddleware.js";
@@ -48,6 +50,8 @@ app.use('/api/v1/job', jobroutes);
 
 app.use('/api/v1/category', categoryroutes);
 
+app.use('/api/v1/product', productroutes);
+
 
 
 
@@ -59,6 +63,6 @@ app.use(errorMiddelware);
 
 const PORT = process.env.PORT || 8080
 
-app.listen(PORT, () => {
+app.listen(PORT,'192.168.1.96', () => {
     console.log(`live on ${process.env.DEV_MODE} Mode on port no ${PORT} `);
 }) 

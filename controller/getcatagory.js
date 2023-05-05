@@ -27,7 +27,8 @@ var Product_data = [];
                           Product_data.push({
                          
                             "Sub_Category_name": cat_product[j]['sub_category'],
-                            "Category_id": cat_product[j]['category_id'],
+                              "Category_id": cat_product[j]['category_id'],
+                            "id":cat_product[j]['_id']
                       
                         });  
                     }
