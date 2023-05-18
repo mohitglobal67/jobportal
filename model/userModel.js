@@ -30,7 +30,9 @@ const userModel = new mongoose.Schema({
     location: {
         type: String,
         default: "india"
-    }
+    },
+
+    
 
 
 }, { timestamps: true });
@@ -48,7 +50,7 @@ userModel.pre('save', async function () {
 //Json WebToken
 
 userModel.methods.createJWT = function () {
-    return JWT.sign({ userId: this._id }, process.env.JWT_SECRET, { expiresIn: '1d' })
+    return JWT.sign({ userId: this._id }, process.env.JWT_SECRET, { expiresIn: '30d' })
 }
 
 
