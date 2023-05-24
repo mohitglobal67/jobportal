@@ -1,7 +1,7 @@
 import express from 'express';
 import userAuth from '../middlewares/authmiddleware.js';
 import { AddwishList, GetProduct, ProductController, myWishlist } from '../controller/product_controller.js';
-import { createProductController, getProductController } from '../controller/productcontroller.js';
+import { createProductController, getProductController, getSingleProductController, productPhotoController } from '../controller/productcontroller.js';
  import formidable from "express-formidable";
 
 
@@ -40,6 +40,11 @@ router.get(
   getProductController
 );
 
+router.get("/get-product/:slug", getSingleProductController);
+
+
+//get photo
+router.get("/product-photo/:pid", productPhotoController);
 
 // router.get('/get-job', userAuth, GetAllJob);
 
